@@ -1,5 +1,6 @@
 #include "tkc/types_def.h"
 #include "http/http_request.h"
+#include "http/http_response.h"
 
 #ifdef AWTK_WEB
 #include <emscripten.h>
