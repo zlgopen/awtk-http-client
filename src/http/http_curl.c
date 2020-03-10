@@ -24,6 +24,8 @@
 #include "tkc/event.h"
 #include "tkc/buffer.h"
 
+#ifdef WITH_CURL
+
 #include <curl/curl.h>
 #include "http/http_header.h"
 #include "http/http_response.h"
@@ -188,6 +190,7 @@ static ret_t http_agent_exec(qaction_t* action) {
   http->request = request;
   http->response = response;
   curl = curl_create_with_request(action, request);
+  log_debug("%s %s\n", request->method, request->url);
   if (curl) {
     res = curl_easy_perform(curl);
 
@@ -261,3 +264,6 @@ ret_t http_request(http_request_t* request) {
 
   return action_thread_pool_exec(s_http_thread_pool, a);
 }
+
+#endif/*WITH_CURL*/
+

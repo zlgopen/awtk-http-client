@@ -1,0 +1,19 @@
+{
+  "name":"awtk-http-client",
+  "version":"1.0",
+  "assets" : "assets",
+  "includes" : ["src"],
+  "web": {
+    "app_type":"c",
+    "exports":"config/exports.json",
+    "sources":["src/http/*.c", "src/http/*.h", "demos/demo_http.c", "src/js/http_request.js"]
+  },
+  "android" : {
+    "app_name":"org.zlgopen.hello",
+    "sources":["src/*.c", "src/*.h", "3rd/sqlite3/sqlite3.c", "3rd/sqlite3/sqlite3.h"]
+  },
+  "ios" : {
+    "app_name":"org.zlgopen.hello",
+    "sources":["src/*.c", "src/*.h", "3rd/sqlite3/sqlite3.c", "3rd/sqlite3/sqlite3.h"]
+  }
+}

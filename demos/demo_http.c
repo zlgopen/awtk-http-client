@@ -94,7 +94,7 @@ static ret_t on_http_event(void* ctx, http_request_t* req) {
 
   idle_queue(update_ui_in_idle, info);
   if (done) {
-    // log_debug("%s\n", resp->body);
+    log_debug("%s\n", resp->body);
   }
 
   return RET_OK;
@@ -102,7 +102,7 @@ static ret_t on_http_event(void* ctx, http_request_t* req) {
 
 static ret_t on_get_click(void* ctx, event_t* e) {
   widget_t* widget = WIDGET(e->target);
-  const char* url = "http://127.0.0.1:8000/get";
+  const char* url = "http://zlgawtk.bceapp.com/get";
   s_app.request = http_request_create_get(url, on_http_event, widget);
 
   http_request(s_app.request);
@@ -114,7 +114,7 @@ static ret_t on_get_click(void* ctx, event_t* e) {
 
 static ret_t on_put_click(void* ctx, event_t* e) {
   widget_t* widget = WIDGET(e->target);
-  const char* url = "http://127.0.0.1:8000/put";
+  const char* url = "http://zlgawtk.bceapp.com/put";
   const char* data = "this is put request";
 
   s_app.request =
@@ -129,7 +129,7 @@ static ret_t on_put_click(void* ctx, event_t* e) {
 
 static ret_t on_del_click(void* ctx, event_t* e) {
   widget_t* widget = WIDGET(e->target);
-  const char* url = "http://127.0.0.1:8000/delete";
+  const char* url = "http://zlgawtk.bceapp.com/delete";
 
   s_app.request = http_request_create_delete(url, on_http_event, widget);
 
@@ -142,7 +142,7 @@ static ret_t on_del_click(void* ctx, event_t* e) {
 
 static ret_t on_post_click(void* ctx, event_t* e) {
   widget_t* widget = WIDGET(e->target);
-  const char* url = "http://127.0.0.1:8000/post";
+  const char* url = "http://zlgawtk.bceapp.com/post";
   const char* data = "this is post request";
 
   s_app.request =
@@ -169,7 +169,7 @@ static ret_t on_quit_click(void* ctx, event_t* e) {
   return RET_OK;
 }
 
-void application_init() {
+ret_t application_init(void) {
   widget_t* win = window_create(NULL, 0, 0, 0, 0);
   widget_t* get = button_create(win, 0, 0, 0, 0);
   widget_t* put = button_create(win, 0, 0, 0, 0);
@@ -217,10 +217,14 @@ void application_init() {
   widget_set_enable(s_app.abort, FALSE);
 
   widget_layout(win);
+
+  return RET_OK;
 }
 
 ret_t application_exit() {
   http_deinit();
+
+  return RET_OK;
 }
 
 #include "awtk_main.inc"
