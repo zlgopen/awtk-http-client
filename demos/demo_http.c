@@ -93,6 +93,7 @@ static ret_t on_http_event(void* ctx, http_request_t* req) {
   update_info_t* info = update_info_create(resp->status_code, resp->body_size, done);
 
   idle_queue(update_ui_in_idle, info);
+  log_debug("on_http_event\n");
   if (done) {
     log_debug("%s\n", resp->body);
   }

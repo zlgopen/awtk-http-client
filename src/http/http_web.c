@@ -6,10 +6,19 @@
 
 ret_t awtk_http_on_result(http_request_t* request, int status_code, 
     const char* status_text, const char* content) {
+  http_response_t* response = request->response;
 
   if(request->on_event) {
+    http_response_set_done(response, TRUE);
+    http_response_set_status_code(response, status_code);
+    if(content != NULL) {
+      http_response_append_body_data(response, content, strlen(content));
+      http_response_set_done(response, TRUE);
+    } else {
+      http_response_set_fail(response, TRUE);
+    }
+
     request->on_event(request->on_event_ctx, request);
-    log_debug("on_event:%s\n", status_text);
   }
 
   log_debug("on_result:%s\n", status_text);
