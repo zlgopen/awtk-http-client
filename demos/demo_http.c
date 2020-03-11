@@ -103,7 +103,7 @@ static ret_t on_http_event(void* ctx, http_request_t* req) {
 
 static ret_t on_get_click(void* ctx, event_t* e) {
   widget_t* widget = WIDGET(e->target);
-  const char* url = "http://zlgawtk.bceapp.com/get";
+  const char* url = "https://github.com/zlgopen/awtk-http-client";
   s_app.request = http_request_create_get(url, on_http_event, widget);
 
   http_request(s_app.request);
