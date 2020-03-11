@@ -3,8 +3,8 @@ import sys
 import platform
 OS_NAME = platform.system();
 
-sys.path.insert(0, '../awtk/')
-#sys.path.insert(0, '../awtk-linux-fb/')
+#sys.path.insert(0, '../awtk/')
+sys.path.insert(0, '../awtk-linux-fb/')
 import awtk_config as awtk
 
 APP_ROOT    = os.path.normpath(os.getcwd())
@@ -39,7 +39,7 @@ APP_LIBPATH = [APP_LIB_DIR]
 APP_LINKFLAGS = ''
 
 
-if awtk.has_custom_cc():
+if hasattr(awtk, 'CC'):
   DefaultEnvironment(
     CC=awtk.CC,
     CXX=awtk.CXX,
