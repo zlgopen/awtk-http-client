@@ -62,7 +62,7 @@
  * configuration file for platforms which lack config tool.
  */
 
-#ifdef HAVE_CONFIG_H
+#if defined(HAVE_CONFIG_H) && !defined(WIN32)
 
 #include "curl_config.h"
 

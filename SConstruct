@@ -27,7 +27,7 @@ os.environ['LIB_DIR'] = APP_LIB_DIR;
 APP_CCFLAGS = ' -DBUILDING_LIBCURL -DWITH_CURL '
 
 if OS_NAME == 'Windows':
-  APP_CCFLAGS = APP_CCFLAGS + ' '
+  APP_CCFLAGS = APP_CCFLAGS + ' -D_WIN32 '
 elif OS_NAME == 'Darwin':
   APP_CCFLAGS = APP_CCFLAGS + ' -DHAVE_CONFIG_H '
 elif OS_NAME == 'Linux':

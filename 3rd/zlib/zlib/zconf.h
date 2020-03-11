@@ -452,6 +452,7 @@ typedef uLong FAR uLongf;
 #endif
 
 #ifdef _WIN32
+#undef Z_HAVE_UNISTD_H
 #  ifndef Z_SOLO
 #    include <stddef.h>         /* for wchar_t */
 #  endif
