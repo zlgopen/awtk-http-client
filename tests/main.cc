@@ -40,6 +40,7 @@ GTEST_API_ int main(int argc, char** argv) {
   testing::InitGoogleTest(&argc, argv);
 
   system_info_init(APP_SIMULATOR, NULL, "./");
+  platform_prepare();
   tk_init_internal();
 
   http_init();
