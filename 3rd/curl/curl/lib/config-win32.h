@@ -757,4 +757,6 @@ Vista
 #  define ENABLE_IPV6 1
 #endif
 
+#define USE_MBEDTLS 1
+
 #endif /* HEADER_CURL_CONFIG_WIN32_H */
