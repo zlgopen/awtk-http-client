@@ -99,7 +99,6 @@ static int http_on_curl_progress_older(void* p, double dltotal, double dlnow, do
 #endif
 
 size_t http_on_curl_body_data(char* buffer, size_t size, size_t nmemb, void* ctx) {
-  double cl = 0;
   int percent = 0;
   progress_event_t progress;
   size_t total_size = size * nmemb;
@@ -165,6 +164,7 @@ static CURL* curl_create_with_request(qaction_t* action, http_request_t* request
   curl_easy_setopt(curl, CURLOPT_NOPROGRESS, FALSE);
   curl_easy_setopt(curl, CURLOPT_VERBOSE, TRUE);
   curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, request->method);
+  curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
 
   if (request->header != NULL) {
     http_agent_set_header(http, request->header);
