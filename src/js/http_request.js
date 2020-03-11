@@ -18,11 +18,7 @@ Http.request = function(handle, _method, _url, _headers, _data, size) {
 
   function onreadystatechange() {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
-      if (httpRequest.status === 200) {
-        Http.onResult(handle, httpRequest.status, httpRequest.statusText, httpRequest.responseText);
-      } else {
-        console.log('There was a problem with the request.');
-      }
+      Http.onResult(handle, httpRequest.status, httpRequest.statusText, httpRequest.responseText);
     }
   }
 
@@ -49,11 +45,15 @@ Http.request = function(handle, _method, _url, _headers, _data, size) {
     }
   }
 
-  if(data) {
-    const content = "test";
-    httpRequest.send(content);
-  } else {
-    httpRequest.send();
+  try {
+    if(data) {
+      const content = "test";
+      httpRequest.send(content);
+    } else {
+      httpRequest.send();
+    }
+  } catch(e) {
+    console.log(e);
   }
 
   return;
