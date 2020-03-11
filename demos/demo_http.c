@@ -95,7 +95,7 @@ static ret_t on_http_event(void* ctx, http_request_t* req) {
   idle_add(update_ui_in_idle, info);
   log_debug("on_http_event\n");
   if (done) {
-    log_debug("%s\n", resp->body);
+    log_debug("%s\n", (char*)(resp->body));
   }
 
   return RET_OK;

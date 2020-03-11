@@ -209,13 +209,12 @@ static ret_t http_agent_exec(qaction_t* action) {
 }
 
 static ret_t http_agent_on_event(qaction_t* action, event_t* e) {
-  ret_t ret = RET_OK;
   http_agent_curl_t* http = http_agent_curl_from_action(action);
   http_request_t* request = http->request;
 
   if (request->on_event != NULL) {
     http_response_lock(request->response);
-    ret = request->on_event(request->on_event_ctx, request);
+    request->on_event(request->on_event_ctx, request);
     http_response_unlock(request->response);
   }
 

@@ -1,6 +1,7 @@
 import os
 import sys
 import platform
+OS_NAME = platform.system();
 
 sys.path.insert(0, '../awtk/')
 import awtk_config as awtk
@@ -23,7 +24,15 @@ os.environ['APP_ROOT'] = APP_ROOT;
 os.environ['BIN_DIR'] = APP_BIN_DIR;
 os.environ['LIB_DIR'] = APP_LIB_DIR;
 
-APP_CCFLAGS = ' -DHAVE_CONFIG_H -DBUILDING_LIBCURL -DWITH_CURL '
+APP_CCFLAGS = ' -DBUILDING_LIBCURL -DWITH_CURL '
+
+if OS_NAME == 'Windows':
+  APP_CCFLAGS = APP_CCFLAGS + ' '
+elif OS_NAME == 'Darwin':
+  APP_CCFLAGS = APP_CCFLAGS + ' -DHAVE_CONFIG_H '
+elif OS_NAME == 'Linux':
+  APP_CCFLAGS = APP_CCFLAGS + ' -DHAVE_CONFIG_H '
+
 APP_LIBS = ['assets', 'z', 'tls']
 APP_LIBPATH = [APP_LIB_DIR]
 APP_LINKFLAGS = ''
@@ -46,8 +55,6 @@ SConscriptFiles=[
   'demos/SConscript'
 ]
 
-#if platform.system() == 'Windows':
-#  SConscriptFiles = SConscriptFiles + ['3rd/curl/SConscript']
 
 SConscript(SConscriptFiles)
 

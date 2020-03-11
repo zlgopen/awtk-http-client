@@ -206,15 +206,6 @@
 /* Define to 1 if you have the freeifaddrs function. */
 #define HAVE_FREEIFADDRS 1
 
-/* Define to 1 if you have the fsetxattr function. */
-#define HAVE_FSETXATTR 1
-
-/* fsetxattr() takes 5 args */
-/* #undef HAVE_FSETXATTR_5 */
-
-/* fsetxattr() takes 6 args */
-#define HAVE_FSETXATTR_6 1
-
 /* Define to 1 if you have the ftruncate function. */
 #define HAVE_FTRUNCATE 1
 
@@ -457,9 +448,6 @@
 /* Define to 1 if the compiler supports the 'long long' data type. */
 #define HAVE_LONGLONG 1
 
-/* Define to 1 if you have the `mach_absolute_time' function. */
-#define HAVE_MACH_ABSOLUTE_TIME 1
-
 /* Define to 1 if you have the malloc.h header file. */
 /* #undef HAVE_MALLOC_H */
 
@@ -698,6 +686,25 @@
 /* Define to 1 if you have the <sys/filio.h> header file. */
 #define HAVE_SYS_FILIO_H 1
 
+#ifdef LINUX
+#elif defined(MACOS)
+/* Define to 1 if you have the <sys/sockio.h> header file. */
+#define HAVE_SYS_SOCKIO_H 1
+
+/* Define to 1 if you have the `mach_absolute_time' function. */
+#define HAVE_MACH_ABSOLUTE_TIME 1
+
+/* Define to 1 if you have the fsetxattr function. */
+#define HAVE_FSETXATTR 1
+
+/* fsetxattr() takes 5 args */
+/* #undef HAVE_FSETXATTR_5 */
+
+/* fsetxattr() takes 6 args */
+#define HAVE_FSETXATTR_6 1
+
+#endif
+
 /* Define to 1 if you have the <sys/ioctl.h> header file. */
 #define HAVE_SYS_IOCTL_H 1
 
@@ -716,8 +723,6 @@
 /* Define to 1 if you have the <sys/socket.h> header file. */
 #define HAVE_SYS_SOCKET_H 1
 
-/* Define to 1 if you have the <sys/sockio.h> header file. */
-#define HAVE_SYS_SOCKIO_H 1
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
 #define HAVE_SYS_STAT_H 1
