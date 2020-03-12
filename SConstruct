@@ -33,7 +33,7 @@ elif OS_NAME == 'Darwin':
 elif OS_NAME == 'Linux':
   APP_CCFLAGS = APP_CCFLAGS + ' -DHAVE_CONFIG_H '
 
-APP_LIBS = ['assets', 'z', 'tls']
+APP_LIBS = ['z', 'tls']
 APP_LIBPATH = [APP_LIB_DIR]
 APP_LINKFLAGS = ''
 

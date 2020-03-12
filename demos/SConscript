@@ -10,4 +10,4 @@ env['LIBS'] = ['http', 'curl'] + env['LIBS']
 if platform.system() == 'Windows':
   env['LIBS'] = ['Ws2_32', 'Wldap32'] + env['LIBS']
 
-env.Program(os.path.join(BIN_DIR, 'demo_http'), ['demo_http.c'])
+env.Program(os.path.join(BIN_DIR, 'demo_http'), ['assets.c', 'demo_http.c'])
