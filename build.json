@@ -7,8 +7,6 @@
     "exports":"config/exports.json",
     "sources":["src/http/*.c", "src/http/*.h", "demos/demo_http.c", "src/js/http_request.js"]
   },
-  "cflags":" -DHAVE_CONFIG_H -DBUILDING_LIBCURL -DWITH_CURL ",
-  "cppflags":" -DHAVE_CONFIG_H -DBUILDING_LIBCURL -DWITH_CURL ",
   "includes" : [
     "src", 
     "3rd/zlib/zlib", 
@@ -16,6 +14,8 @@
     "3rd/curl/curl/include", 
     "3rd/tls/mbedtls/include"],
   "android" : {
+    "cflags":" -DHAVE_CONFIG_H -DBUILDING_LIBCURL -DWITH_CURL ",
+    "cppflags":" -DHAVE_CONFIG_H -DBUILDING_LIBCURL -DWITH_CURL ",
     "app_name":"org.zlgopen.http",
     "sources":[
       "3rd/curl/curl/include/curl/*.h", 
@@ -37,7 +37,8 @@
       "src/http/*.c", "src/http/*.h", "demos/*.c"]
   },
   "ios" : {
-    "app_name":"org.zlgopen.hello",
+    "defines":" HAVE_CONFIG_H=1 BUILDING_LIBCURL=1 WITH_CURL=1 ",
+    "app_name":"org.zlgopen.http",
     "sources":[
       "3rd/curl/curl/include/curl/*.h", 
       "3rd/curl/curl/lib/*.c", 
