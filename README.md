@@ -22,11 +22,6 @@ cd awtk-http-client; scons
 ```
 ./bin/demo_http
 ```
-> 测试 HTTP 之前，需要用 nodejs 启动本地 HTTP 服务：
->
-> ```
-> node server/index.js
-> ```
 
 ### 3. 基本用法
 

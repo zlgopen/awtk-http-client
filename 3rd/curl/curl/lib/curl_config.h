@@ -254,9 +254,6 @@
 /* Define to 1 if you have the gethostname function. */
 #define HAVE_GETHOSTNAME 1
 
-/* Define to 1 if you have a working getifaddrs function. */
-#define HAVE_GETIFADDRS 1
-
 /* Define to 1 if you have the `getpass_r' function. */
 /* #undef HAVE_GETPASS_R */
 
@@ -369,9 +366,6 @@
 
 /* Define to 1 if you have a working ioctl FIONBIO function. */
 #define HAVE_IOCTL_FIONBIO 1
-
-/* Define to 1 if you have a working ioctl SIOCGIFADDR function. */
-#define HAVE_IOCTL_SIOCGIFADDR 1
 
 /* Define to 1 if you have the <io.h> header file. */
 /* #undef HAVE_IO_H */
@@ -687,6 +681,7 @@
 #define HAVE_SYS_FILIO_H 1
 
 #ifdef LINUX
+
 #elif defined(MACOS)
 /* Define to 1 if you have the <sys/sockio.h> header file. */
 #define HAVE_SYS_SOCKIO_H 1
@@ -702,8 +697,16 @@
 
 /* fsetxattr() takes 6 args */
 #define HAVE_FSETXATTR_6 1
-
 #endif
+
+#ifndef ANDROID
+/* Define to 1 if you have a working getifaddrs function. */
+#define HAVE_GETIFADDRS 1
+
+/* Define to 1 if you have a working ioctl SIOCGIFADDR function. */
+#define HAVE_IOCTL_SIOCGIFADDR 1
+
+#endif/*ANDROID*/
 
 /* Define to 1 if you have the <sys/ioctl.h> header file. */
 #define HAVE_SYS_IOCTL_H 1
