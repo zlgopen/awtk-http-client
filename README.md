@@ -59,3 +59,14 @@ ret_t http_request(http_request_t* request);
 * 设置 request->abort 标志来取消请求，取消请求是异步。
 
 > 具体用法请参考：demos/demo_http.c 
+
+### 4. 支持平台
+
+* windows
+* linux
+* macos
+* android
+* ios
+* web
+
+
