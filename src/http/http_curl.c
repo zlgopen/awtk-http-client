@@ -193,6 +193,7 @@ static ret_t http_agent_exec(qaction_t* action) {
   log_debug("%s %s\n", request->method, request->url);
   if (curl) {
     res = curl_easy_perform(curl);
+    log_debug("curl_easy_perform=%d\n", (int)res);
 
     if (res != CURLE_OK) {
       http_response_set_fail(request->response, TRUE);
