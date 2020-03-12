@@ -13,7 +13,6 @@ APP_BIN_DIR = os.path.join(APP_ROOT, 'bin')
 APP_LIB_DIR = os.path.join(APP_ROOT, 'lib')
 
 APP_CPPPATH = ['.', 
-  os.path.join(APP_ROOT, '3rd/tls/mbedtls/crypto/include/'),
   os.path.join(APP_ROOT, '3rd/tls/mbedtls/include'),
   os.path.join(APP_ROOT, '3rd/zlib/zlib'),
   os.path.join(APP_ROOT, '3rd/curl/curl/lib'),

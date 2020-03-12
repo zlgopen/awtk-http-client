@@ -2,15 +2,35 @@
   "name":"awtk-http-client",
   "version":"1.0",
   "assets" : "assets",
-  "includes" : ["src"],
   "web": {
     "app_type":"c",
     "exports":"config/exports.json",
     "sources":["src/http/*.c", "src/http/*.h", "demos/demo_http.c", "src/js/http_request.js"]
   },
+  "includes" : [
+    "src", 
+    "3rd/zlib/zlib", 
+    "3rd/curl/curl/lib", 
+    "3rd/curl/curl/include", 
+    "3rd/tls/mbedtls/include"],
   "android" : {
-    "app_name":"org.zlgopen.hello",
-    "sources":["src/*.c", "src/*.h", "3rd/sqlite3/sqlite3.c", "3rd/sqlite3/sqlite3.h"]
+    "app_name":"org.zlgopen.http",
+    "sources":[
+      "3rd/curl/curl/include/curl/*.h", 
+      "3rd/curl/curl/lib/*.c", 
+      "3rd/curl/curl/lib/vauth/*.c", 
+      "3rd/curl/curl/src/*.c", 
+      "3rd/curl/curl/lib/vtls/*.c",
+      "3rd/curl/curl/lib/*.h", 
+      "3rd/curl/curl/lib/vauth/*.h", 
+      "3rd/curl/curl/src/*.h", 
+      "3rd/curl/curl/lib/vtls/*.h",
+      "3rd/zlib/zlib/*.c",
+      "3rd/zlib/zlib/*.h",
+      "3rd/tls/mbedtls/library/*.c",
+      "3rd/tls/mbedtls/library/*.h",
+      "3rd/tls/mbedtls/include/mbedtls/*.h",
+      "src/*.c", "src/*.h", "demos/*.c"]
   },
   "ios" : {
     "app_name":"org.zlgopen.hello",
