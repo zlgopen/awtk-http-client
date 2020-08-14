@@ -1,5 +1,7 @@
+from app_helper_base import AppHelperBase
 import os
 import sys
+
 
 def getAwtkConfig(LINUX_FB):
     AWTK_ROOT = getAwtkOrAwtkLinuxFbRoot(LINUX_FB)
@@ -8,22 +10,27 @@ def getAwtkConfig(LINUX_FB):
 
     return awtk
 
+
 def getAwtkOrAwtkLinuxFbRoot(LINUX_FB):
     if LINUX_FB:
-      AWTK_ROOT = getAwtkLinuxFbRoot()
+        AWTK_ROOT = getAwtkLinuxFbRoot()
     else:
-      AWTK_ROOT = getAwtkRoot()
+        AWTK_ROOT = getAwtkRoot()
 
-    return AWTK_ROOT;
+    return AWTK_ROOT
+
 
 def getAwtkScriptsRoot():
-    return os.path.join(locateAWTK('awtk'), 'scripts');
+    return os.path.join(locateAWTK('awtk'), 'scripts')
+
 
 def getAwtkRoot():
     return locateAWTK('awtk')
 
+
 def getAwtkLinuxFbRoot():
     return locateAWTK('awtk-linux-fb')
+
 
 def locateAWTK(awtk):
     awtk_root = '../' + awtk
@@ -35,10 +42,10 @@ def locateAWTK(awtk):
                 break
     return os.path.abspath(awtk_root)
 
-AWTK_ROOT=getAwtkRoot();
-AWTK_SCRIPTS_ROOT=getAwtkScriptsRoot();
-sys.path.insert(0, AWTK_SCRIPTS_ROOT);
-from app_helper_base import AppHelperBase
 
-print('AWTK_ROOT:' + AWTK_ROOT);
-print('AWTK_SCRIPTS_ROOT:' + AWTK_SCRIPTS_ROOT);
+AWTK_ROOT = getAwtkRoot()
+AWTK_SCRIPTS_ROOT = getAwtkScriptsRoot()
+sys.path.insert(0, AWTK_SCRIPTS_ROOT)
+
+print('AWTK_ROOT:' + AWTK_ROOT)
+print('AWTK_SCRIPTS_ROOT:' + AWTK_SCRIPTS_ROOT)
