@@ -1,7 +1,7 @@
 {
   "name":"awtk-http-client",
   "version":"1.0",
-  "assets" : "assets",
+  "assets" : "res/assets",
   "web": {
     "app_type":"c",
     "exports":"config/exports.json",
