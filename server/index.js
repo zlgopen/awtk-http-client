@@ -22,7 +22,7 @@ const server = http.createServer(function(request, response) {
   } else {
     var html = '<p>hello awtk</p>\n';
     var done = 'done\n';
-    var n = 100000;
+    var n = 10;
     var size = n * html.length + done.length;
 
     response.writeHead(200, {'Content-Type': 'text/html', 'Content-Length': size})

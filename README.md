@@ -17,6 +17,14 @@ cd awtk-http-client; scons
 
 ### 2. 运行 Demo：
 
+> 考虑到 github 的下载速度，生成的临时资源没放到 git 中，需要自己生成资源：
+
+```
+./scripts/update_res.py all
+```
+
+> 或者通过 designer 生成资源
+
 * HTTP 请求的 demo
 
 ```
@@ -68,5 +76,3 @@ ret_t http_request(http_request_t* request);
 * android
 * ios
 * web
-
-
