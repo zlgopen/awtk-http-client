@@ -19,11 +19,11 @@
  *
  */
 
+#include "http/http_request.h"
+#include "http/http_header.h"
+#include "http/http_response.h"
 #include "tkc/mem.h"
 #include "tkc/utils.h"
-#include "http/http_header.h"
-#include "http/http_request.h"
-#include "http/http_response.h"
 
 static http_request_t* http_request_create(const char* url, const char* method,
                                            http_request_on_event_t on_event, void* ctx,

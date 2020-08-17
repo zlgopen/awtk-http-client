@@ -19,18 +19,18 @@
  *
  */
 
+#include "tkc/buffer.h"
+#include "tkc/event.h"
 #include "tkc/mem.h"
 #include "tkc/utils.h"
-#include "tkc/event.h"
-#include "tkc/buffer.h"
 
 #ifdef WITH_CURL
 
-#include <curl/curl.h>
 #include "http/http_header.h"
-#include "http/http_response.h"
 #include "http/http_request.h"
+#include "http/http_response.h"
 #include "tkc/action_thread_pool.h"
+#include <curl/curl.h>
 
 typedef struct _http_agent_curl_t {
   CURL* curl;
@@ -265,5 +265,4 @@ ret_t http_request(http_request_t* request) {
   return action_thread_pool_exec(s_http_thread_pool, a);
 }
 
-#endif/*WITH_CURL*/
-
+#endif /*WITH_CURL*/

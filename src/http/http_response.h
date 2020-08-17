@@ -22,9 +22,9 @@
 #ifndef TK_HTTP_RESPONSE_H
 #define TK_HTTP_RESPONSE_H
 
-#include "tkc/mutex.h"
-#include "tkc/buffer.h"
 #include "http/http_common.h"
+#include "tkc/buffer.h"
+#include "tkc/mutex.h"
 
 BEGIN_C_DECLS
 

@@ -41,7 +41,8 @@ BEGIN_C_DECLS
  *
  *注意：
  *
- *> * request->on_event在后台线程中执行，如果需要在该函数中操作GUI的控件，请用idle_queue进行串行化。
+ *> *
+ *request->on_event在后台线程中执行，如果需要在该函数中操作GUI的控件，请用idle_queue进行串行化。
  *> * request只能在request->response的fail标志或done标志为TRUE后才能销毁。
  *> * 可以通过http_request_abort取消请求，取消请求异步执行，可能会有一定延迟。
  *> * 本函数适合一般的REST API，不适合传输大文件，也不适合同时发送大量请求。
