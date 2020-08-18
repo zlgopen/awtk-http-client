@@ -77,7 +77,7 @@ ret_t http_header_destroy(http_header_t* header) {
 
   while (iter != NULL) {
     http_header_t* next = iter->next;
-    TKMEM_FREE(next);
+    TKMEM_FREE(iter);
     iter = next;
   }
 

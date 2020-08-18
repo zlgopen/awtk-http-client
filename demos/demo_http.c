@@ -95,7 +95,9 @@ static ret_t on_http_event(void* ctx, http_request_t* req) {
   idle_queue(update_ui_in_idle, info);
   log_debug("on_http_event\n");
   if (done) {
-    log_debug("%s\n", (char*)(resp->body));
+    if (resp->body != NULL && resp->body_size > 0) {
+      log_debug("%s\n", (char*)(resp->body));
+    }
   }
 
   return RET_OK;
