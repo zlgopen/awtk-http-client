@@ -12,18 +12,31 @@ cd awtk; scons; cd -
 2. 获取 awtk-http-client 并编译
 ```
 git clone https://github.com/zlgopen/awtk-http-client.git
-cd awtk-http-client; scons
+cd awtk-http-client
 ```
 
-### 2. 运行 Demo：
-
-> 考虑到 github 的下载速度，生成的临时资源没放到 git 中，需要自己生成资源：
+* 生成资源
 
 ```
-./scripts/update_res.py all
+python ./scripts/update_res.py all
 ```
 
 > 或者通过 designer 生成资源
+
+
+* 编译PC版本
+
+```
+scons
+```
+
+* 编译LINUX FB版本
+
+```
+scons LINUX_FB=true
+```
+
+### 2. 运行 Demo：
 
 * HTTP 请求的 demo
 
