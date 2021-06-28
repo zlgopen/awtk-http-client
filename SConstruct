@@ -33,5 +33,5 @@ SConscriptFiles=[
   'demos/SConscript'
 ]
 
-SConscript(SConscriptFiles)
+helper.SConscript(SConscriptFiles)
 
