@@ -6,8 +6,10 @@ helper = app.Helper(ARGUMENTS);
 
 OS_NAME = platform.system();
 APP_ROOT=helper.APP_ROOT
+AWTK_ROOT=helper.AWTK_ROOT
+
 APP_CPPPATH = ['.', 
-  os.path.join(APP_ROOT, '3rd/tls/mbedtls/include'),
+  os.path.join(AWTK_ROOT, '3rd/mbedtls/include'),
   os.path.join(APP_ROOT, '3rd/zlib/zlib'),
   os.path.join(APP_ROOT, '3rd/curl/curl/lib'),
   os.path.join(APP_ROOT, '3rd/curl/curl/include'),
@@ -22,11 +24,10 @@ elif OS_NAME == 'Darwin':
 elif OS_NAME == 'Linux':
   APP_CCFLAGS = APP_CCFLAGS + ' -DHAVE_CONFIG_H '
 
-helper.add_libs(['z', 'tls']).add_cpppath(APP_CPPPATH).set_ccflags(APP_CCFLAGS).call(DefaultEnvironment)
+helper.add_libs(['z', 'mbedtls']).add_cpppath(APP_CPPPATH).set_ccflags(APP_CCFLAGS).call(DefaultEnvironment)
 
 SConscriptFiles=[
   '3rd/zlib/SConscript', 
-  '3rd/tls/SConscript', 
   '3rd/curl/SConscript', 
   'src/http/SConscript', 
   'tests/SConscript', 
