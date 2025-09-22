@@ -230,5 +230,5 @@ ret_t application_exit() {
   return RET_OK;
 }
 
-#include "assets.inc"
+#include "../res/assets.inc"
 #include "awtk_main.inc"
